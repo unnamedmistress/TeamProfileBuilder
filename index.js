@@ -1,23 +1,55 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const generateSite = require('./src/generate-site.js');
+const path = require('path');
+const Output = path.resolve(__dirname, 'output');
+const outpath = path.join(Output, 'team.html');
+const teamMembers = [];
 
 //  array of questions
 const questions = [
   {
     type: 'input',
-    message: 'What is your name?',
+    message: 'What is your name? (required)',
     name: 'name',
+    validate: nameInput => {
+        if(nameInput) {
+            return true;
+        }else {
+            console.log('You must provide a name');
+            return false;
+        }
+    }
     
   },
   {
     type: 'input',
-    message: 'What is your id',
-      name: 'id'
+    message: 'What is your id (required)',
+      name: 'id',
+      validate: idInput => {
+        if(idInput) {
+            return true;
+        }else {
+            console.log('You must provide a id');
+            return false;
+        }
+    }
   },
   {
     type: 'input',
-    message: 'What is your email address?',
+    message: 'What is your email address? (required)',
     name: 'email',
+    validate: emailInput => {
+        if(emailInput) {
+            return true;
+        }else {
+            console.log('You must provide an email address');
+            return false;
+        }
+    }
     
   },
   {
@@ -44,7 +76,100 @@ function init() {
 inquirer
 .prompt(questions)
    .then((answers) => {
-    const filename = `${answers.name.toLowerCase().split(' ').join('')}.json`;
+    const manager = new Manager (answers.name, answers.id, answers.email, answers.officeNumber);
+    teamMembers.push(manager);
+    promptMenu();
+   })
+};
+
+const menu = () => {
+    return inquirer.prompt([{
+        type:'list',
+        name: 'menu',
+        message: 'Please pick an option',
+        choices: ['add a Manager', 'add an Engineer', 'add an Intern', 'finish building my team'],
+    }])
+    .then(user => {
+        switch (user.menu){
+            case 'add an Engineer':
+                promptEngineer();
+                break;
+                case 'add a Manager':
+                    promptManager();
+                    break;
+                    case 'add an Intern':
+                        promptIntern();
+                        default:
+                            buildTeam();
+
+
+        }
+    });
+};
+
+const promptEngineer = () => {
+console.log('Add a Engineer');
+return inquirer.prompt([
+    {
+    type: 'input',
+    name: 'name',
+    message: 'What is the name of the Engineer?',
+    validate: engineerInput => {
+        if(engineerInput) {
+            return true;
+        }else {
+            console.log('You must provide a name');
+            return false;
+        }
+    }
+
+},
+{
+    type: 'input',
+    name: 'engineerid',
+    message: 'What is the ID of the Engineer?',
+    validate: engineerid => {
+        if(engineerid) {
+            return true;
+        }else {
+            console.log('You must provide a ID');
+            return false;
+        }
+    }
+
+},
+{
+    type: 'input',
+    name: 'engineeremail',
+    message: 'What is the email of the Engineer?',
+    validate: engineeremail => {
+        if(engineeremail) {
+            return true;
+        }else {
+            console.log('You must provide a email');
+            return false;
+        }
+    }
+
+},
+{
+    type: 'input',
+    name: 'github',
+    message: 'What is the URL of your Github?',
+    validate: githubInput => {
+        if(githubInput) {
+            return true;
+        }else {
+            console.log('You must provide a Github');
+            return false;
+        }
+    }
+
+},
+
+
+])
+
     fs.writeFile(filename, JSON.stringify(questions && answers, null, '\t'), (err) => {
         if (err) throw err;
         console.log(answers);
