@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "name": "teamprofile",
+  "description": "Building a website with prompts using NodeJS, Inquirer, Classes and Constructors",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unnamedmistress/TeamProfileBuilder.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "inquirer",
+    "classes"
+  ],
+  "author": "Chrysti Reichert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unnamedmistress/TeamProfileBuilder/issues"
+  },
+  "homepage": "https://github.com/unnamedmistress/TeamProfileBuilder#readme"
+}
