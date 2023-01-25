@@ -11,21 +11,24 @@
 8. [Tests?](#Tests)
 9. [Questions?](#questions)
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/e60Eswp2EmM/0.jpg)](http://www.youtube.com/watch?v=e60Eswp2EmM "Video Title")
+![Screenshot](/output/Screenshot%202023-01-24%20190852.png)
+
+[![My video](https://img.youtube.com/vi/NVnkztbJPgs/0.jpg)](https://www.youtube.com/watch?v=NVnkztbJPgs)
+
 
 # Title: Generate a Team Board
 ## Description/Problem Solved 
 Create a team board in minutes
 ## Installation
-inquirer
+Node, Inquirer and Jest
 ## License and Link: [MIT](https://opensource.org/licenses/MIT/)
 
 ## Credit
 Chrysti Reichert
 ## Installation Steps 
-Install Inquirer to use
+Node.js required: Install Inquirer to use and Jest to test
 ## Intended Usage 
-Usable by project managers
+Usable by Project Managers to generate a team contact board in minutes.
 ## Tests? 
  Jest
 ## Questions? 
