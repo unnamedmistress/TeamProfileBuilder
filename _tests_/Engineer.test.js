@@ -1,4 +1,5 @@
 const Engineer = require("../lib/Engineer")
+//Testing Engineer constructor
 const engineer = new Engineer ('John', '87', 'email@email.com', 'www.github.com');
 test('should be able to get the objects from the engineer constructor', () => {
     expect(engineer.name).toEqual('John');

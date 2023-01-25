@@ -1,4 +1,5 @@
 const Intern = require("../lib/Intern")
+//Testing Intern constructor
 const intern = new Intern ('John', '87', 'email@email.com', 'UCF');
 test('should be able to get the objects from the intern constructor', () => {
     expect(intern.name).toEqual('John');

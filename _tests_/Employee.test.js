@@ -1,4 +1,6 @@
 const Employee = require("../lib/Employee")
+
+//Testing Employee constructor
 const employee = new Employee ('John', '87', 'email@email.com');
 test('should be able to get the objects from the employee constructor', () => {
     expect(employee.name).toEqual('John');

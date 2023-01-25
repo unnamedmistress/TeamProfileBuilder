@@ -241,7 +241,7 @@ const promptManager = () => {
             promptMenu();
            })
         };
-
+//Build your team by writing to file team.html
         const buildTeam = () => {
             fs.writeFileSync(outpath, generateSite(teamMembers), 'utf-8');
             console.log('Team has been built successfully!');

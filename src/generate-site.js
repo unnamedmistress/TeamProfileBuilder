@@ -15,6 +15,7 @@ const generateTeam = (team) => {
         `
         html.push(managerHtml);
 }
+//each team member has it's own card in HTML and it's written to the page
 const generateEngineer = (engineer) => {
     let engineerHtml = `
     <div class="card"><div class = 'card-header'>
@@ -54,6 +55,7 @@ for (let i = 0; i < team.length; i++) {
 
 return html.join('');
 }
+//The Page Template
 module.exports = team => {
     return `<!DOCTYPE html>
       <html lang="en">
